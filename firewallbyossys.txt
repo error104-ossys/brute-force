@@ -1,0 +1,45 @@
+import os
+import platform
+def activate_firewall(mode):
+    if mode == 1:
+        print("Activating Normal Security...")
+        # Simulate normal security activation
+        os.system("echo 'Normal security activated.'")
+    elif mode == 2:
+        print("Activating Emergency Security...")
+        # Simulate emergency security activation
+        os.system("echo 'Emergency security activated.'")
+    elif mode == 3:
+        print("Activating Ultra Emergency Security...")
+        # Simulate ultra emergency security activation
+        os.system("echo 'Ultra emergency security activated.'")
+    else:
+        print("Invalid mode selected.")
+def protect_ip(ip_address):
+    print(f"Activating firewall protection for IP: {ip_address}...")
+    # Simulate IP protection
+    os.system(f"echo 'Firewall protection activated for {ip_address}.'")
+def main():
+    print("Welcome to the Firewall Management App!")
+    print("Please choose an option:")
+    print("1. Activate Normal Security")
+    print("2. Activate Emergency Security")
+    print("3. Activate Ultra Emergency Security")
+    print("4. IP Protection")
+    while True:
+        try:
+            choice = int(input("Enter your choice (1-4): "))
+            if choice in [1, 2, 3]:
+                activate_firewall(choice)
+            elif choice == 4:
+                ip_address = input("Enter the IP address to protect: ")
+                protect_ip(ip_address)
+            else:
+                print("Invalid choice. Please select a valid option.")
+        except ValueError:
+            print("Please enter a number between 1 and 4.")
+        cont = input("Do you want to perform another action? (y/n): ").strip().lower()
+        if cont != 'y':
+            break
+if __name__ == "__main__":
+    main()
